@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Funny Question</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(120deg, #43cea2, #185a9d);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial;
+}
+
+.box {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    width: 320px;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+h1 {
+    margin-bottom: 30px;
+}
+
+button {
+    padding: 12px 28px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 8px;
+}
+
+.yes {
+    background: #ff5c8a;
+    color: white;
+}
+
+.maybe {
+    background: #ffa600;
+    color: white;
+}
+
+.no {
+    background: #333;
+    color: white;
+    position: absolute;
+}
+
+p {
+    margin-top: 25px;
+    font-size: 16px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+    <h1>😏 Are you secretly gay?</h1>
+
+    <button class="yes" onclick="yesClick()">Yes</button>
+    <button class="maybe" onclick="maybeClick()">Maybe</button>
+    <button class="no" id="noBtn">No</button>
+
+    <p id="result"></p>
+</div>
+
+<script>
+const noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover", moveButton);
+noBtn.addEventListener("click", moveButton);
+
+function moveButton() {
+    const box = document.querySelector(".box");
+
+    const maxX = box.clientWidth - noBtn.offsetWidth;
+    const maxY = box.clientHeight - noBtn.offsetHeight;
+
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+}
+
+function yesClick() {
+    document.getElementById("result").innerHTML =
+    "😂 I knew that you were gay!";
+}
+
+function maybeClick() {
+    document.getElementById("result").innerHTML =
+    "😅 Hmm… interesting answer!";
+}
+</script>
+
+</body>
+</html>
